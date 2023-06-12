@@ -1,0 +1,17 @@
+button {
+    height: 40px;
+    font-size: 24px;
+  }
+  
+.field_easy{
+    display: grid;
+    grid-template-columns: repeat(8, 40px);
+  }
+.field_normal {
+    display: grid;
+    grid-template-columns: repeat(12, 40px);
+  }
+.field_hard {
+    display: grid;
+    grid-template-columns: repeat(16, 40px);
+  }

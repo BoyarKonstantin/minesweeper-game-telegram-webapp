@@ -25,7 +25,7 @@ function main(){
       });
     
       hardBtn.addEventListener('click', function() {
-        console.log('Выбрана сложность Hard ');
+        console.log('Выбрана сложность Hard');
         start_game(16, 16, 10, 'hard')
         modal.style.display = 'none';
       });

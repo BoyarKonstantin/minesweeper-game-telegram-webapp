@@ -1,16 +1,40 @@
 
 function main(){
-    let difficult = prompt("Choose the difficult: \n 1 - Easy \n 2 - Normal \n 3 - Hard")
+
+    const openModalBtn = document.getElementById('openModalBtn');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const modal = document.getElementById('myModal');
+    const easyBtn = document.getElementById('easyBtn');
+    const regularBtn = document.getElementById('regularBtn');
+    const hardBtn = document.getElementById('hardBtn');
+
+    closeModalBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+      });
     
-    if(difficult.replace(" ", "") === "1"){
-        start_game(8, 8, 12, "easy");
+      easyBtn.addEventListener('click', function() {
+        console.log('Выбрана сложность Easy');
+        start_game(8, 8, 10, 'easy')
+        modal.style.display = 'none';
+      });
+    
+      regularBtn.addEventListener('click', function() {
+        console.log('Выбрана сложность Regular');
+        start_game(12, 12, 10, 'normal')
+        modal.style.display = 'none';
+      });
+    
+      hardBtn.addEventListener('click', function() {
+        console.log('Выбрана сложность Hard');
+        start_game(16, 16, 10, 'hard')
+        modal.style.display = 'none';
+      });
+
+    function openModal() {
+      modal.style.display = 'block';
     }
-    if(difficult.replace(" ", "") === "2"){
-        start_game(12, 12, 30, "normal");
-    }
-    if(difficult.replace(" ", "") === "3"){
-        start_game(16, 16, 40, "hard");
-    }
+
+    window.addEventListener('load', openModal);
 }
 main()
 function start_game(width, height, bombs_count, diffucult){

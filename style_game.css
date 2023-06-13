@@ -1,19 +1,48 @@
-button {
-    height: 40px;
-    font-size: 24px;
+.main_field{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+@media (max-width: 480px) {
+    .main_field {
+      padding: 20px; /* Добавьте отступы для мобильных устройств */
+    }
   }
+button {
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 24px;
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+<<<<<<< HEAD
+.h1-score{
+    display: block;
+}
+=======
   
-.field_easy{
+>>>>>>> 071a4b54caf4722224bcd6f703e0d4ca3ba29b52
+.field_button{
     display: grid;
+}
+#field_easy{
     grid-template-columns: repeat(8, 40px);
   }
-.field_normal {
-    display: grid;
+#field_normal {
+<<<<<<< HEAD
+=======
     grid-template-columns: repeat(12, 40px);
   }
-.field_hard {
-    display: grid;
+#field_hard {
+>>>>>>> 071a4b54caf4722224bcd6f703e0d4ca3ba29b52
     grid-template-columns: repeat(16, 40px);
+  }
+#field_hard {
+    grid-template-columns: repeat(30, 40px);
   }
 
   .modal {
@@ -34,7 +63,7 @@ button {
     align-items: center;
     width: 400px;
     height: 200px;
-    background-color: white;
+    background-color: rgb(152, 168, 154);
     border-radius: 5px;
     margin: 0 auto;
     margin-top: 20vh;
@@ -43,6 +72,8 @@ button {
   
   .difficulty-btn {
     margin-bottom: 10px;
+    width: 6rem;
+    
   }
   
   .close-modal-btn {
@@ -54,4 +85,3 @@ button {
     font-size: 20px;
     cursor: pointer;
   }
-  

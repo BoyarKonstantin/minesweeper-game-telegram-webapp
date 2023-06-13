@@ -42,7 +42,10 @@ function main(){
 function start_game(width, height, bombs_count, diffucult){
 
     let field;
-
+    function showScore() {
+        const scoreElement = document.getElementById("score");
+        scoreElement.style.display = "block";
+      }
     if(diffucult === "easy"){
         field = document.querySelector('#field_easy');
         showScore()
@@ -94,10 +97,6 @@ function start_game(width, height, bombs_count, diffucult){
         }
         return count;
       }      
-      function showScore() {
-        const scoreElement = document.getElementById("score");
-        scoreElement.style.display = "block";
-      }
       function open(row, column) {
 
         if (!isValid(row, column)) return;

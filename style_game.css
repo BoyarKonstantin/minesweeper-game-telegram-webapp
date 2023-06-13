@@ -19,8 +19,8 @@ button {
     justify-content: center;
     align-items: center;
   }
-.h1-score{
-    display: block;
+#score{
+    display: none;
 }
 .field_button{
     display: grid;

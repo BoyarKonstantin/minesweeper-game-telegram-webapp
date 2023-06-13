@@ -7,7 +7,7 @@
 }
 @media (max-width: 480px) {
     .main_field {
-      padding: 20px; /* Добавьте отступы для мобильных устройств */
+      padding: 20px; 
     }
   }
 button {
@@ -19,13 +19,9 @@ button {
     justify-content: center;
     align-items: center;
   }
-<<<<<<< HEAD
 .h1-score{
     display: block;
 }
-=======
-  
->>>>>>> 071a4b54caf4722224bcd6f703e0d4ca3ba29b52
 .field_button{
     display: grid;
 }
@@ -33,12 +29,6 @@ button {
     grid-template-columns: repeat(8, 40px);
   }
 #field_normal {
-<<<<<<< HEAD
-=======
-    grid-template-columns: repeat(12, 40px);
-  }
-#field_hard {
->>>>>>> 071a4b54caf4722224bcd6f703e0d4ca3ba29b52
     grid-template-columns: repeat(16, 40px);
   }
 #field_hard {

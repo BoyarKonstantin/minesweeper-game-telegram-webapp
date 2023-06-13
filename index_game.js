@@ -15,7 +15,7 @@ function main(){
     
       easyBtn.addEventListener('click', function() {
         console.log('Выбрана сложность Easy');
-        start_game(8, 8, 13, 'easy')
+        start_game(8, 8, 10, 'easy')
         modal.style.display = 'none';
       });
     
@@ -28,7 +28,6 @@ function main(){
       hardBtn.addEventListener('click', function() {
         console.log('Выбрана сложность Hard');
         start_game(30, 16, 99, 'hard')
-        start_game(16, 16, 15, 'hard')
         modal.style.display = 'none';
       });
 
@@ -46,12 +45,15 @@ function start_game(width, height, bombs_count, diffucult){
 
     if(diffucult === "easy"){
         field = document.querySelector('#field_easy');
+        showScore()
     }
     if(diffucult === "normal"){
         field = document.querySelector('#field_normal');
+        showScore()
     }
     if(diffucult === "hard"){
         field = document.querySelector('#field_hard');
+        showScore()
     }
     
     const cells_count = width * height;
@@ -98,8 +100,6 @@ function start_game(width, height, bombs_count, diffucult){
       }
       function open(row, column) {
 
-
-
         if (!isValid(row, column)) return;
     
         const index = row * width + column;
@@ -145,58 +145,6 @@ function start_game(width, height, bombs_count, diffucult){
         }
     }
     
-
-function open(row, column) {
-
-    if (!isValid) return;
-  
-    const index = row * width + column;
-    const cell = cells[index];
-  
-    if (cell.disabled === true) return;
-  
-    cell.disabled = true;
-    closed_count--;
-
-  // вычисление коефициента и количества набранных очков
-    let coeff = Math.pow(width * height / closed_count, 2);
-    console.log(coeff, closed_count);
-    var score = (Math.round(coeff * 1000) * (1 + bombs_count / 100)).toFixed(2);
-    document.getElementById('score').innerHTML = score;
-  
-    cell.style.backgroundColor = 'lightgray';
-    cell.style.color = 'black';
-    // Условие победы
-    if (closed_count <= bombs_count) {
-      alert('You won!');
-      return;
-    }
-
-  // Условие проигрыша
-    if (isBomb(row, column)) {
-      cell.innerHTML = 'X';
-      alert('You hit a bomb!');
-      location.reload();
-      return;
-    }
-  
-    const count = getCount(row, column);
-    if (count === 0) {
-      cell.innerHTML = '';
-    }
-    if (count !== 0) {
-      cell.innerHTML = count;
-      return;
-    }
-  
-    for (let x = -1; x <= 1; x++) {
-      for (let y = -1; y <= 1; y++) {
-        open(row + y, column + x);
-      }
-    }
-  }
-    
-
     function isBomb(row, column){
 
         if(!isValid) return false;

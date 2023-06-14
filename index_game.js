@@ -9,7 +9,7 @@ function main(){
     const hardBtn = document.getElementById('hardBtn');
 
     closeModalBtn.addEventListener('click', function() {
-        start_game(12, 12, 1, 'normal')
+        //start_game(12, 12, 1, 'normal')
         modal.style.display = 'none';
       });
     
@@ -110,8 +110,9 @@ function start_game(width, height, bombs_count, diffucult){
           }
         }
         return count;
-      }      
-      function open(row, column) {
+      }   
+
+    function open(row, column) {
 
         if (!isValid(row, column)) return;
     
@@ -136,13 +137,35 @@ function start_game(width, height, bombs_count, diffucult){
             alert('You won!');
             return;
         }
-    
-        if (isBomb(row, column)) {  
-            cell.innerHTML = '💣';
-            alert('You hit a bomb!');
-            location.reload();
-            return;
+     // Условие проигрыша
+     if (isBomb(row, column)) {
+        cell.innerHTML = '💣';  
+        
+        // Открываем все ячейки с бомбами
+        for(let i = 0; i < height; i++){
+            for(let j = 0; j < width; j++){
+                
+                if(isBomb(i, j)){
+                    const bombCellIndex = i * width + j;
+                    const bombCell = cells[bombCellIndex];
+                    bombCell.innerHTML = '💣';
+                    bombCell.disabled = true;
+                }
+            }
         }
+        const divs = document.querySelectorAll('.main_field');
+
+        divs.forEach(div => {
+            div.style.pointerEvents = 'none';
+        });
+
+        alert('You hit a bomb!');
+        setTimeout(function() {
+            location.reload();
+        }, 4000);
+        return;
+    }
+    
     
         const count = getCount(row, column);
         if (count === 0) {

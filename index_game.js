@@ -81,6 +81,17 @@ function start_game(width, height, bombs_count, diffucult){
 
     });
 
+    field.addEventListener('contextmenu', (event) => {
+      if (event.target.tagName !== 'BUTTON'){
+        return
+      }
+      event.preventDefault();
+      const index = cells.indexOf(event.target);
+      const cell = cells[index];
+      cell.innerHTML = "🇺🇦"
+      return false;
+    }, false);
+    
     //получение количества рядом стоящих мин
     function getCount(row, column) {
         let count = 0;

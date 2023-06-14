@@ -88,6 +88,9 @@ function start_game(width, height, bombs_count, diffucult){
       event.preventDefault();
       const index = cells.indexOf(event.target);
       const cell = cells[index];
+      if(cell.disabled === true){
+        cell.innerHTML = getCount(row, column);
+      }
       cell.innerHTML = "🇺🇦"
       return false;
     }, false);
